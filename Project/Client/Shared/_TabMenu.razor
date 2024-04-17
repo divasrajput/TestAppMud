@@ -1,0 +1,15 @@
+﻿@inject IDialogService DialogService
+
+
+<MudButton @onclick="OpenDialog" Variant="Variant.Filled" Color="Color.Primary">
+    New Case
+</MudButton>
+
+@code {
+
+    void OpenDialog()
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        DialogService.Show<_DialogLayout>("Service Opportunity Test", options);
+}
+}

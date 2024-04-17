@@ -1,0 +1,63 @@
+﻿<p>FilterMenu</p>
+<MudGrid>
+    <MudItem xs="6" sm="3">
+        <MudTextField @bind-Value="CaseNumber" Label="Case Number" Variant="Variant.Outlined"></MudTextField>
+    </MudItem>
+
+
+    <MudItem xs="6" sm="3">
+        <MudSelect T="string" Label="Program" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+            <MudSelectItem T="string" Value="@("Program 1")" />
+            <MudSelectItem T="string" Value="@("Program 2")" />
+            <MudSelectItem T="string" Value="@("Program 3")" />
+        </MudSelect>
+    </MudItem>
+
+
+    <MudItem xs="6" sm="3">
+        <MudDatePicker PickerVariant="PickerVariant.Dialog" Label="Opened Date Between" HelperText="From Date" DateFormat="MM/dd/yyyy" Date="@(new System.DateTime(2020,10,19))" />
+    </MudItem>
+
+    <MudItem xs="6" sm="3">
+        <MudDatePicker PickerVariant="PickerVariant.Dialog" Label="Opened Date Between" HelperText="To Date" DateFormat="MM/dd/yyyy" Date="@(new System.DateTime(2020,10,19))" />
+    </MudItem>
+
+
+    <MudItem xs="6" sm="3">
+        <MudTextField @bind-Value="CaseNumber" Label="Patient ID" Variant="Variant.Outlined"></MudTextField>
+    </MudItem>
+
+
+    <MudItem xs="6" sm="3">
+        <MudSelect T="string" Label="Case Status" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+            <MudSelectItem T="string" Value="@("Pending")" />
+            <MudSelectItem T="string" Value="@("Completed")" />
+
+        </MudSelect>
+    </MudItem>
+
+
+    <MudItem xs="6" sm="3">
+        <MudDatePicker PickerVariant="PickerVariant.Dialog" Label="Finalized Date Between" HelperText="From Date" DateFormat="MM/dd/yyyy" Date="@(new System.DateTime(2020,10,19))" />
+    </MudItem>
+
+    <MudItem xs="6" sm="3">
+        <MudDatePicker PickerVariant="PickerVariant.Dialog" Label="Finalized Date Between" HelperText="To Date" DateFormat="MM/dd/yyyy" Date="@(new System.DateTime(2020,10,19))" />
+    </MudItem>
+
+</MudGrid>
+
+<MudIconButton Style="margin:5px" Icon="@Icons.Material.Filled.Search" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" />
+
+
+
+@code {
+    public string CaseNumber { get; set; }
+
+
+
+
+
+
+
+}

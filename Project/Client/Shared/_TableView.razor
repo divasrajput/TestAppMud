@@ -1,0 +1,50 @@
+﻿
+<MudTable Items="@actions" style="border: 1px solid #000;" Hover="@true" Striped="true" Bordered="true" HeaderClass="table-head-bordered" FooterClass="table-foot-bordered">
+    <HeaderContent>
+        <MudTh>Case No.</MudTh>
+        <MudTh>Program</MudTh>
+        <MudTh>Comment Date</MudTh>
+        <MudTh>Applies To</MudTh>
+        <MudTh>Details</MudTh>
+        <MudTh>Status</MudTh>
+        <MudTh>Level</MudTh>
+
+
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Case No.">@context.Number</MudTd>
+        <MudTd DataLabel="Program">@context.ProgramName</MudTd>
+        <MudTd DataLabel="Comment Date">@context.CommentDate</MudTd>
+        <MudTd DataLabel="Applies To">@context.AppliesTo</MudTd>
+        <MudTd DataLabel="Details">@context.Details</MudTd>
+        <MudTd DataLabel="Status">@context.Status</MudTd>
+        <MudTd DataLabel="Level">@context.Level</MudTd>
+
+    </RowTemplate>
+</MudTable>
+
+
+@code {
+
+    public class MyAction
+    {
+        public int Number { get; set; }
+        public string ProgramName { get; set; }
+        public string CommentDate { get; set; }
+        public string AppliesTo { get; set; }
+        public string Details { get; set; }
+        public string Status { get; set; }
+        public string Level { get; set; }
+        
+    }
+    
+
+    List<MyAction> actions = new List<MyAction>() {
+        new MyAction { Number = 1, ProgramName="Hello", CommentDate="01/01/2024", AppliesTo="Test1", Status="Pending", Details="Demo", Level="Unknown" },
+        new MyAction { Number = 2, ProgramName="Hello", CommentDate="01/01/2024", AppliesTo="Test1", Status="Pending", Details="Demo", Level="Unknown" },
+           
+            };
+        
+
+
+}

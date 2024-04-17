@@ -1,0 +1,87 @@
+﻿
+<MudDialog>
+    <DialogContent>
+        <MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary" Variant="Variant.Outlined">
+            <MudTabPanel Text="Description">
+                <MudText>Content Description</MudText>
+                <MudGrid>
+                    <MudItem xs="12" md="4">
+                        <MudSelect @bind-Value="selectedProgram" Label="Program" Variant="Variant.Outlined">
+                            <MudSelectItem T="string" Value="@("program1")">Program 1</MudSelectItem>
+                            <MudSelectItem Value="@("program2")">Program 2</MudSelectItem>
+                            <MudSelectItem Value="@("program3")">Program 3</MudSelectItem>
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="12" md="4">
+                        <MudSelect @bind-Value="selectedAppliesTo" Label="Applies to" Variant="Variant.Outlined">
+                            <MudSelectItem Value="@("all")">All Users</MudSelectItem>
+                            <MudSelectItem Value="@("specific")">Specific Users</MudSelectItem>
+
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="12" md="4">
+                        <MudSelect @bind-Value="selectedNotificationType" Label="Notification type" Variant="Variant.Outlined">
+                            <MudSelectItem Value="@("email")">Email</MudSelectItem>
+                            <MudSelectItem Value="@("sms")">SMS</MudSelectItem>
+                            <MudSelectItem Value="@("popup")">Popup</MudSelectItem>
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="12" md="8">
+                        <MudSelect @bind-Value="commentSource" Label="Comment Source" Variant="Variant.Outlined">
+                            <MudSelectItem Value="@("Source1")">Source1</MudSelectItem>
+                            <MudSelectItem Value="@("Source2")">Source2</MudSelectItem>
+                            <MudSelectItem Value="@("Source3")">Source3</MudSelectItem>
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                        <MudTextField @bind-Value="name" Label="Name" Variant="Variant.Outlined" />
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                        <MudTextField @bind-Value="phone" Label="Phone" Variant="Variant.Outlined" />
+
+                    </MudItem>
+                    <MudItem xs="12" md="12">
+                        <MudTextField @bind-Value="description" Label="Briefly describe the comment" Variant="Variant.Outlined" />
+                    </MudItem>
+                </MudGrid>
+            </MudTabPanel>
+            <MudTabPanel Text="Classification">
+                <MudText>Content Classification</MudText>
+            </MudTabPanel>
+            <MudTabPanel Text="Assessment">
+                <MudText>Content Assessment</MudText>
+            </MudTabPanel>
+            <MudTabPanel Text="Actions">
+                <MudText>Content Actions</MudText>
+            </MudTabPanel>
+            <MudTabPanel Text="Resolution">
+                <MudText>Content Resolution</MudText>
+            </MudTabPanel>
+            <MudTabPanel Text="History">
+                <MudText>Content History</MudText>
+            </MudTabPanel>
+        </MudTabs>
+
+
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    public string CaseNumber;
+    public string selectedProgram { get; set; }
+    public string selectedAppliesTo { get; set; }
+    public string selectedNotificationType { get; set; }
+    public string commentSource { get; set; }
+    public string name { get; set; }
+    public string phone { get; set; }
+    public string description { get; set; }
+
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    void Cancel() => MudDialog.Cancel();
+}

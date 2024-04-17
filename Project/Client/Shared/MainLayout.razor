@@ -1,15 +1,21 @@
 ﻿@inherits LayoutComponentBase
 
 <MudThemeProvider />
-<MudDialogProvider />
+<MudDialogProvider
+    FullWidth="true"
+    MaxWidth="MaxWidth.Medium"
+    />
 <MudSnackbarProvider />
 
-<MudLayout>
+<MudLayout Style="padding:10px">
     <MudAppBar>
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         VITAS-Service Opportunity
         <MudSpacer></MudSpacer>
-        <MudButton Variant="Variant.Filled" Color="Color.Primary">Primary</MudButton>
+
+        <MudButton  Style="margin:10px" Variant="Variant.Outlined" Color="Color.Inherit">Home</MudButton>
+        <MudButton Style="margin:10px" Variant="Variant.Outlined" Color="Color.Inherit">New Case</MudButton>
+        <MudButton Style="margin:10px" Variant="Variant.Outlined" Color="Color.Inherit">Report</MudButton>
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen">
         <MyNavMenu/>
@@ -17,7 +23,14 @@
 
     <MudMainContent>
         @Body
+
+
+        <_FilterMenu />
+        <_TabMenu />
+        <_TableView />
     </MudMainContent>
+
+
 </MudLayout>
 
 
@@ -27,5 +40,12 @@
     void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;
+    }
+
+    public string SelectedOption { get; set; }
+
+    private void Reset()
+    {
+        SelectedOption = null;
     }
 }
